@@ -2,3 +2,8 @@
 *.css
 *.scss
 *.html
+*.png
+*.jpg
+*.jpeg
+*.gif
+src/assets
