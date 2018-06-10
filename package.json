@@ -1,6 +1,6 @@
 {
   "name": "facebook-video-speed-control",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Speed up or slow down playback of Facebook videos",
   "main": "src/index.js",
   "scripts": {
