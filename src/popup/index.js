@@ -11,7 +11,7 @@ function setSpeed(speedOptions, speed) {
   speedOptions.selectedIndex = selectedIndex; // eslint-disable-line no-param-reassign
 }
 
-function onChangeListener(event, speedOptions) {
+function onChangeListener(event) {
   event.preventDefault();
 
   const speed = Number.parseFloat(event.target.value);
@@ -33,7 +33,5 @@ window.onload = function onLoad() {
   // set initial speed
   setSpeed(speedOptions, defaultSpeed);
 
-  speedOptions.addEventListener('change', event =>
-    onChangeListener(event, speedOptions),
-  );
+  speedOptions.addEventListener('change', onChangeListener);
 };

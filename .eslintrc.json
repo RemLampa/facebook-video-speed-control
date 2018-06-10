@@ -9,5 +9,8 @@
     ],
     "plugins": [
         "prettier"
-    ]
+    ],
+    "globals": {
+        "chrome": true
+    }
 }
