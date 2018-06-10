@@ -1,1 +1,4 @@
 *.json
+*.css
+*.scss
+*.html
