@@ -21,5 +21,5 @@ observer.observe(globalContainer, config);
 function adjustVideoSpeed(speed) {
   const videos = document.getElementsByTagName("video");
 
-  console.log(videos);
+  Object.values(videos).forEach(video => console.log(video, video.playbackRate));
 }
