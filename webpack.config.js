@@ -1,5 +1,7 @@
 const path = require('path');
 
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 const env = process.env.NODE_ENV;
 
 module.exports = {
@@ -22,4 +24,9 @@ module.exports = {
             },
         ],
     },
+    plugins: [
+        new CopyWebpackPlugin([
+            './src/manifest.json',
+        ]),
+    ],
 };
