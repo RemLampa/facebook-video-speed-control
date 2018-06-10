@@ -22,6 +22,6 @@ const observer = new FacebookObserver(
 
 observer.setObserver(2.0);
 
-chrome.runtime.onMessage.addListener(request => {
-  console.log(request.speed);
-});
+chrome.runtime.onMessage.addListener(request =>
+  observer.setObserver(request.speed),
+);

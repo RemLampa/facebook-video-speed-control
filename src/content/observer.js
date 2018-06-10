@@ -21,8 +21,11 @@ FacebookObserver.prototype.setVideoSpeed = throttle(setVideoSpeed, 1000, {
 FacebookObserver.prototype.setObserver = function setObserver(speed) {
   if (this.observer) {
     this.observer.disconnect();
+
+    setVideoSpeed(speed); // set speed of all existing videos immediately
   }
 
+  // set speed of all videos hereafter
   this.observer = new this.MutationObserver(() => this.setVideoSpeed(speed));
 
   this.observer.observe(this.container, this.config);
