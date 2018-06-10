@@ -1,27 +1,34 @@
+import { GET_SAVED_SPEED } from '../constants';
 import FacebookObserver from './observer';
 
-const MutationObserver =
-  window.MutationObserver ||
-  window.WebKitMutationObserver ||
-  window.MozMutationObserver;
+function init(speed) {
+  console.log(speed);
 
-const globalContainer = document.getElementById('globalContainer');
+  const MutationObserver =
+    window.MutationObserver ||
+    window.WebKitMutationObserver ||
+    window.MozMutationObserver;
 
-const config = {
-  childList: true,
-  attributes: false,
-  characterData: false,
-  subtree: true,
-};
+  const globalContainer = document.getElementById('globalContainer');
 
-const observer = new FacebookObserver(
-  MutationObserver,
-  globalContainer,
-  config,
-);
+  const config = {
+    childList: true,
+    attributes: false,
+    characterData: false,
+    subtree: true,
+  };
 
-observer.setObserver(2.0);
+  const observer = new FacebookObserver(
+    MutationObserver,
+    globalContainer,
+    config,
+  );
 
-chrome.runtime.onMessage.addListener(request =>
-  observer.setObserver(request.speed),
-);
+  observer.setObserver(2.0);
+
+  chrome.runtime.onMessage.addListener(request =>
+    observer.setObserver(request.speed),
+  );
+}
+
+chrome.runtime.sendMessage({ type: GET_SAVED_SPEED }, response => init(response.speed));

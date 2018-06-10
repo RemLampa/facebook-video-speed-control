@@ -1,0 +1,2 @@
+export const SAVE_SET_SPEED = 'SAVE_SET_SPEED';
+export const GET_SAVED_SPEED = 'GET_SAVED_SPEED';
