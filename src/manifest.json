@@ -16,7 +16,7 @@
             "js": ["content-script.js"]
         }
     ],
-    "browser_action": {
+    "page_action": {
         "default_popup": "popup.html",
         "default_icon": {
             "16": "assets/Icon-16.png",
