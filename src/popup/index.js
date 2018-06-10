@@ -1,4 +1,4 @@
-import { GET_SAVED_SPEED } from '../constants';
+import { GET_SAVED_SPEED, SAVE_SET_SPEED } from '../constants';
 
 function setSpeed(speedOptions, speed) {
   const speedValues = Object.values(speedOptions).map(option =>
@@ -21,6 +21,8 @@ function onChangeListener(event) {
   chrome.tabs.query({ url: '*://*.facebook.com/*' }, tabs =>
     tabs.forEach(tab => chrome.tabs.sendMessage(tab.id, { speed })),
   );
+
+  chrome.runtime.sendMessage({ type: SAVE_SET_SPEED, data: { speed } });
 }
 
 window.onload = function onLoad() {
@@ -31,11 +33,8 @@ window.onload = function onLoad() {
   const speedOptions = document.getElementsByName('speed')[0];
 
   chrome.runtime.sendMessage({ type: GET_SAVED_SPEED }, response => {
-    console.log(response);
-    const defaultSpeed = 1.0;
-
     // set initial speed
-    setSpeed(speedOptions, defaultSpeed);
+    setSpeed(speedOptions, response.speed);
 
     speedOptions.addEventListener('change', onChangeListener);
   });

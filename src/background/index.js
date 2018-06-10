@@ -4,10 +4,10 @@ function saveSpeed(speed) {
   chrome.storage.local.set({ speed });
 }
 
-chrome.runtime.onInstalled.addListener(() => saveSpeed(0.25));
+chrome.runtime.onInstalled.addListener(() => saveSpeed(1.0));
 
-function saveSetSpeedHandler(request, sender, sendResponse) {
-  console.log(request);
+function saveSetSpeedHandler(callback, data) {
+  saveSpeed(data.speed);
 }
 
 function getSaveSpeedHandler(callback) {
