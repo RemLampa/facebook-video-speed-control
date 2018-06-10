@@ -3,7 +3,8 @@
     "version": "1.0",
     "description": "Speed up or slow down playback of Facebook videos",
     "permissions": [
-        "activeTab"
+        "activeTab",
+        "storage"
     ],
     "background": {
         "scripts": ["background.js"],
