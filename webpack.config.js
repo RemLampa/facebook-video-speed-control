@@ -34,6 +34,10 @@ module.exports = {
                 from: './src/popup/index.html',
                 to: 'popup.html',
             },
+            {
+                from: './src/assets',
+                to: 'assets',
+            }
         ]),
         new CleanWebpackPlugin(
             [env === 'production' ? 'dist' : 'dev'],

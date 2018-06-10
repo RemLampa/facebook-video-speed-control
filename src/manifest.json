@@ -17,7 +17,13 @@
         }
     ],
     "browser_action": {
-        "default_popup": "popup.html"
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "assets/Icon-16.png",
+            "32": "assets/Icon-32.png",
+            "48": "assets/Icon-48.png",
+            "128": "assets/Icon-128.png"
+        }
     },
     "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
     "manifest_version": 2
