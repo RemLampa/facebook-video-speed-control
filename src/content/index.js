@@ -6,7 +6,7 @@ const MutationObserver =
 const globalContainer = document.getElementById("globalContainer");
 
 const observer = new MutationObserver(mutations => {
-  console.log(mutations);
+  adjustVideoSpeed();
 });
 
 const config = {
@@ -17,3 +17,9 @@ const config = {
 };
 
 observer.observe(globalContainer, config);
+
+function adjustVideoSpeed(speed) {
+  const videos = document.getElementsByTagName("video");
+
+  console.log(videos);
+}
