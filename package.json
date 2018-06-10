@@ -4,7 +4,8 @@
   "description": "Speed up or slow down playback of Facebook videos",
   "main": "src/index.js",
   "scripts": {
-    "dev": "webpack",
+    "dist": "NODE_ENV=\"production\" webpack",
+    "dev": "NODE_ENV=\"development\" webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
