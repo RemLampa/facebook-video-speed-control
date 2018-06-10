@@ -14,7 +14,11 @@ function setSpeed(speedOptions, speed) {
 function onChangeListener(event, speedOptions) {
   event.preventDefault();
 
-  console.log(event.target.value);
+  const speed = Number.parseFloat(event.target.value);
+
+  chrome.tabs.query({ url: '*://*.facebook.com/*' }, tabs =>
+    tabs.forEach(tab => chrome.tabs.sendMessage(tab.id, { speed })),
+  );
 }
 
 window.onload = function onLoad() {

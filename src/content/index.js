@@ -29,3 +29,7 @@ const config = {
 };
 
 observer.observe(globalContainer, config);
+
+chrome.runtime.onMessage.addListener(request => {
+  console.log(request.speed);
+});
