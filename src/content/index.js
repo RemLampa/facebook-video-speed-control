@@ -1,3 +1,5 @@
+import throttle from 'lodash.throttle';
+
 const MutationObserver =
   window.MutationObserver ||
   window.WebKitMutationObserver ||
@@ -5,8 +7,10 @@ const MutationObserver =
 
 const globalContainer = document.getElementById("globalContainer");
 
+const throttleAdjustVideoSpeed = throttle(adjustVideoSpeed, 1000, { trailing: true });
+
 const observer = new MutationObserver(mutations => {
-  adjustVideoSpeed();
+  throttleAdjustVideoSpeed();
 });
 
 const config = {
