@@ -2,8 +2,14 @@ const path = require('path');
 
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ZipPlugin = require('zip-webpack-plugin');
 
-const env = process.env.NODE_ENV;
+const PACKAGE = require('./package.json');
+const VERSION = PACKAGE.version;
+
+function isProd() {
+    return process.env.NODE_ENV === 'production';
+}
 
 module.exports = {
     entry: {
@@ -12,10 +18,10 @@ module.exports = {
         'background': './src/background/index.js',
     },
     output: {
-        path: path.resolve(__dirname, env === 'production' ? 'dist' : 'dev'),
+        path: path.resolve(__dirname, isProd() ? 'dist' : 'dev'),
         filename: '[name].js',
     },
-    mode: env === 'production' ? env : 'development',
+    mode: isProd() ? 'production' : 'development',
     module: {
         rules: [
             {
@@ -40,7 +46,14 @@ module.exports = {
             }
         ]),
         new CleanWebpackPlugin(
-            [env === 'production' ? 'dist' : 'dev'],
+            [ 
+                isProd() ? 'dist' : 'dev',
+                'release',
+            ],
         ),
+        new ZipPlugin({
+            path: path.resolve(__dirname, 'release'),
+            filename: `fvsc_${VERSION}.zip`,
+        }),
     ],
 };
