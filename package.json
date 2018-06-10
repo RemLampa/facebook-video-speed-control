@@ -4,6 +4,7 @@
   "description": "Speed up or slow down playback of Facebook videos",
   "main": "src/index.js",
   "scripts": {
+    "start": "yarn dev --watch",
     "dist": "NODE_ENV=\"production\" webpack",
     "dev": "NODE_ENV=\"development\" webpack",
     "lint": "eslint \"src/**\" --fix",
