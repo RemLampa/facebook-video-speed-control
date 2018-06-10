@@ -13,7 +13,6 @@
   "keywords": [
     "html5",
     "video",
-    "video",
     "playback",
     "facebook"
   ],
@@ -38,5 +37,13 @@
   },
   "dependencies": {
     "lodash.throttle": "^4.1.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RemLampa/facebook-video-speed-control.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RemLampa/facebook-video-speed-control/issues"
+  },
+  "homepage": "https://github.com/RemLampa/facebook-video-speed-control"
 }
