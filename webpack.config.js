@@ -1,6 +1,7 @@
 const path = require('path');
 
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const env = process.env.NODE_ENV;
 
@@ -28,5 +29,8 @@ module.exports = {
         new CopyWebpackPlugin([
             './src/manifest.json',
         ]),
+        new CleanWebpackPlugin(
+            [env === 'production' ? 'dist' : 'dev'],
+        ),
     ],
 };
