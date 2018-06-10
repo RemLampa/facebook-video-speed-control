@@ -29,4 +29,6 @@ function init(initialSpeed) {
   );
 }
 
-chrome.runtime.sendMessage({ type: GET_SAVED_SPEED }, response => init(response.speed));
+chrome.runtime.sendMessage({ type: GET_SAVED_SPEED }, response =>
+  init(response.speed),
+);
