@@ -5,6 +5,10 @@
     "permissions": [
         "activeTab"
     ],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
     "content_scripts": [
         {
             "matches": ["https://*.facebook.com/*"],

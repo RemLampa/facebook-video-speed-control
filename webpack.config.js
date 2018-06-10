@@ -9,6 +9,7 @@ module.exports = {
     entry: {
         'content-script': './src/content/index.js',
         'popup': './src/popup/index.js',
+        'background': './src/background/index.js',
     },
     output: {
         path: path.resolve(__dirname, env === 'production' ? 'dist' : 'dev'),
