@@ -14,5 +14,8 @@
     "facebook"
   ],
   "author": "Rem Lampa <rem@lansangan.com> (http://www.remlampa.com)",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.12.0"
+  }
 }
