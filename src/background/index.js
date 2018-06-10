@@ -32,3 +32,19 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
   return handler(sendResponse, request.data);
 });
+
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+  const parser = document.createElement('a');
+
+  parser.href = tab.url;
+
+  const isFacebook = /facebook\.com$/.test(parser.hostname);
+
+  if (!isFacebook) {
+    chrome.pageAction.hide(tabId);
+
+    return;
+  }
+
+  chrome.pageAction.show(tabId);
+});

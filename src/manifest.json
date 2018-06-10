@@ -4,6 +4,7 @@
     "description": "Speed up or slow down playback of Facebook videos",
     "permissions": [
         "activeTab",
+        "tabs",
         "storage"
     ],
     "background": {
