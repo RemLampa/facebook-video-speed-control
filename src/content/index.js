@@ -13,7 +13,7 @@ const config = {
   childList: true,
   attributes: false,
   characterData: false,
-  subtree: true
+  subtree: true,
 };
 
 observer.observe(globalContainer, config);
