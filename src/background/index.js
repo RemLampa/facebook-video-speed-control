@@ -4,7 +4,7 @@ function saveSpeed(speed) {
   chrome.storage.local.set({ speed });
 }
 
-chrome.runtime.onInstalled.addListener(() => saveSpeed(1.0));
+chrome.runtime.onInstalled.addListener(() => saveSpeed(0.25));
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.type !== GET_SAVED_SPEED) {

@@ -1,9 +1,7 @@
 import { GET_SAVED_SPEED } from '../constants';
 import FacebookObserver from './observer';
 
-function init(speed) {
-  console.log(speed);
-
+function init(initialSpeed) {
   const MutationObserver =
     window.MutationObserver ||
     window.WebKitMutationObserver ||
@@ -24,7 +22,7 @@ function init(speed) {
     config,
   );
 
-  observer.setObserver(2.0);
+  observer.setObserver(initialSpeed);
 
   chrome.runtime.onMessage.addListener(request =>
     observer.setObserver(request.speed),
