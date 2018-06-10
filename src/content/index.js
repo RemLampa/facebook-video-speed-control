@@ -1,2 +1,3 @@
+const globalContainer = document.getElementById("globalContainer");
 
-console.log('We are at content');
+console.log(globalContainer);
