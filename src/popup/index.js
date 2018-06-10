@@ -1,3 +1,5 @@
+import { GET_SAVED_SPEED } from '../constants';
+
 function setSpeed(speedOptions, speed) {
   const speedValues = Object.values(speedOptions).map(option =>
     Number.parseFloat(option.value),
@@ -28,10 +30,13 @@ window.onload = function onLoad() {
 
   const speedOptions = document.getElementsByName('speed')[0];
 
-  const defaultSpeed = 1.0;
+  chrome.runtime.sendMessage({ type: GET_SAVED_SPEED }, response => {
+    console.log(response);
+    const defaultSpeed = 1.0;
 
-  // set initial speed
-  setSpeed(speedOptions, defaultSpeed);
+    // set initial speed
+    setSpeed(speedOptions, defaultSpeed);
 
-  speedOptions.addEventListener('change', onChangeListener);
+    speedOptions.addEventListener('change', onChangeListener);
+  });
 };
