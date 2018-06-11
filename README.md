@@ -6,7 +6,7 @@ Until Facebook itself implements the feature, may this Chrome extension serve as
 
 ## Installation
 
-As of this writing, the app is still pending approval from the Chrome Web Store. I will update this document once the app gets published.
+The Chrome extension is available now from the [Chrome Web Store](https://chrome.google.com/webstore/detail/facebook-video-speed-cont/mkpjcmkameikplglemncielacjijggoe)
 
 ## Contributing
 
