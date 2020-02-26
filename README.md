@@ -8,6 +8,17 @@ Until Facebook itself implements the feature, may this Chrome extension serve as
 
 The Chrome extension is available now from the [Chrome Web Store](https://chrome.google.com/webstore/detail/facebook-video-speed-cont/mkpjcmkameikplglemncielacjijggoe)
 
+## Or if you want to compile from source:
+
+```
+git clone https://github.com/RemLampa/facebook-video-speed-control.git
+cd facebook-video-speed-control
+yarn install
+yarn upgrade
+npm run dist
+```
+Then you can visit chrome://extensions/ in Chrome and enable "Developer mode" and then click "Load unpacked" and choose the `facebook-video-speed-control\dist` folder.
+
 ## Contributing
 
 I will update this document to detail how interested people can contribute to the code. But everyone is free to file feature requests and bug reports on this repo's Issues page.
