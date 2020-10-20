@@ -1,14 +1,15 @@
 {
   "name": "facebook-video-speed-control",
-  "version": "0.1.0",
+  "version": "0.0.0-semantically-released",
   "description": "Speed up or slow down playback of Facebook videos",
   "main": "src/index.js",
   "scripts": {
     "start": "yarn dev --watch",
-    "dist": "NODE_ENV=\"production\" webpack",
-    "dev": "NODE_ENV=\"development\" webpack",
+    "dist": "cross-env NODE_ENV=\"production\" webpack",
+    "dev": "cross-env NODE_ENV=\"development\" webpack",
+    "release": "yarn semantic-release",
     "lint": "eslint \"src/**\" --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 0"
   },
   "keywords": [
     "html5",
@@ -19,21 +20,31 @@
   "author": "Rem Lampa <rem@remlampa.com> (http://www.remlampa.com)",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.49",
-    "@babel/preset-env": "^7.0.0-beta.49",
-    "babel-loader": "^8.0.0-beta",
-    "clean-webpack-plugin": "^0.1.19",
-    "copy-webpack-plugin": "^4.5.1",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-prettier": "^2.6.0",
-    "eslint-plugin-react": "^7.4.0",
-    "prettier": "^1.13.5",
-    "webpack": "^4.12.0",
-    "webpack-cli": "^3.0.3",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@commitlint/config-conventional": "^11.0.0",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "commitizen": "^4.2.1",
+    "commitlint": "^11.0.0",
+    "copy-webpack-plugin": "^6.2.1",
+    "cross-env": "^7.0.2",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.13.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.4",
+    "husky": "^4.3.0",
+    "json-loader": "^0.5.7",
+    "lint-staged": "^10.4.2",
+    "prettier": "^2.1.2",
+    "semantic-release": "^17.2.1",
+    "semantic-release-chrome": "^1.1.3",
+    "webpack": "^5.1.3",
+    "webpack-cli": "^4.0.0",
     "zip-webpack-plugin": "^3.0.0"
   },
   "dependencies": {
@@ -46,5 +57,10 @@
   "bugs": {
     "url": "https://github.com/RemLampa/facebook-video-speed-control/issues"
   },
-  "homepage": "https://github.com/RemLampa/facebook-video-speed-control"
+  "homepage": "https://github.com/RemLampa/facebook-video-speed-control",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }

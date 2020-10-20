@@ -1,0 +1,25 @@
+{
+  "dryRun": true,
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/changelog",
+    [
+      "semantic-release-chrome",
+      {
+        "extensionId": "mkpjcmkameikplglemncielacjijggoe",
+        "asset": "release/fvsc.zip"
+      }
+    ],
+    [
+      "@semantic-release/github",
+      {
+        "assets": [
+          {
+            "path": "release/fvsc.zip"
+          }
+        ]
+      }
+    ]
+  ]
+}

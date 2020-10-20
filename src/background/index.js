@@ -11,7 +11,7 @@ function saveSetSpeedHandler(callback, data) {
 }
 
 function getSaveSpeedHandler(callback) {
-  chrome.storage.local.get(['speed'], result =>
+  chrome.storage.local.get(['speed'], (result) =>
     callback({ speed: Number.parseFloat(result.speed) }),
   );
 
