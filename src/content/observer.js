@@ -2,14 +2,14 @@ import throttle from 'lodash.throttle';
 
 function setVideoSpeed(speed) {
   const videos = document.getElementsByTagName('video');
-  Object.values(videos).forEach(video => {
+
+  Object.values(videos).forEach((video) => {
     video.playbackRate = speed; // eslint-disable-line no-param-reassign
   });
 }
 
-function FacebookObserver(MutationObserver, container, config) {
+function FacebookObserver(MutationObserver, config) {
   this.MutationObserver = MutationObserver;
-  this.container = container;
   this.config = config;
   this.observer = null;
 }
@@ -28,7 +28,7 @@ FacebookObserver.prototype.setObserver = function setObserver(speed) {
   // set speed of all videos hereafter
   this.observer = new this.MutationObserver(() => this.setVideoSpeed(speed));
 
-  this.observer.observe(this.container, this.config);
+  this.observer.observe(document, this.config);
 };
 
 export default FacebookObserver;

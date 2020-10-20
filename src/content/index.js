@@ -7,8 +7,6 @@ function init(initialSpeed) {
     window.WebKitMutationObserver ||
     window.MozMutationObserver;
 
-  const globalContainer = document.getElementById('globalContainer');
-
   const config = {
     childList: true,
     attributes: false,
@@ -16,19 +14,15 @@ function init(initialSpeed) {
     subtree: true,
   };
 
-  const observer = new FacebookObserver(
-    MutationObserver,
-    globalContainer,
-    config,
-  );
+  const observer = new FacebookObserver(MutationObserver, config);
 
   observer.setObserver(initialSpeed);
 
-  chrome.runtime.onMessage.addListener(request =>
+  chrome.runtime.onMessage.addListener((request) =>
     observer.setObserver(request.speed),
   );
 }
 
-chrome.runtime.sendMessage({ type: GET_SAVED_SPEED }, response =>
+chrome.runtime.sendMessage({ type: GET_SAVED_SPEED }, (response) =>
   init(response.speed),
 );
