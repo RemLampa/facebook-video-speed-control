@@ -22,7 +22,7 @@ jobs:
         run: |
           yarn dist
       - name: Release
-        # if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/master'
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
